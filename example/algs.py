@@ -28,6 +28,10 @@ def Partition (A,p,r):
     return i+1
 
 def quicksort(A,p,r):
+    if len(A)==0:
+        return []
+    if len(A)==1:
+        return A
     if p < r:
         q = Partition(A,p,r)
         quicksort(A,p,q-1)
