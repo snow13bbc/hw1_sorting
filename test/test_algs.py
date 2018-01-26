@@ -24,11 +24,11 @@ def test_bubblesort():
     # think about: (1) does your code handle 0-element arrays without
     # failing, (2) does your code handle characters?
 
-    A = np.array([1,2,4,0,1]) #odd length
-    B = np.array([]) #empty vector
-    C = np.array([2]) #single element vector
-    D = np.array([23, 23, 42, 1, 32, 2]) # Duplicated elements
-    E = np.array([1,2,4,0]) #even length
+    A = [1,2,4,0,1] #odd length
+    B = [] #empty vector
+    C = [2] #single element vector
+    D = [23, 23, 42, 1, 32, 2] # Duplicated elements
+    E = [1,2,4,0] #even length
 
     # for now, just attempt to call the bubblesort function, should
     # actually check output
@@ -42,17 +42,18 @@ def test_bubblesort():
 
 def test_quicksort():
 
-    A = np.array([1,2,4,0,1]) #odd length
-    B = np.array([]) #empty vector
-    C = np.array([2]) #single element vector
-    D = np.array([23, 23, 42, 1, 32, 2]) # Duplicated elements
-    E = np.array([1,2,4,0]) #even length
+    A = [1,2,4,0,1] #odd length
+    B = [] #empty vector
+    C = [2] #single element vector
+    D = [23, 23, 42, 1, 32, 2] # Duplicated elements
+    E = [1,2,4,0] #even length
+    
     # for now, just attempt to call the quicksort function, should
     # actually check output
     assert algs.quicksort(A,0,len(A)-1) == sorted(A)
     assert algs.quicksort(B,0,len(B)-1) == sorted(B)
     assert algs.quicksort(C,0,len(C)-1) == sorted(C)
     assert algs.quicksort(D,0,len(D)-1) == sorted(D)
-    assert algs.quicksort(E,0,len(A)-1) == sorted(E)
+    assert algs.quicksort(E,0,len(E)-1) == sorted(E)
 
     # algs.quicksort(x,0,len(x)-1)
