@@ -10,30 +10,49 @@ def pointless_sort(x):
     return np.array([1,2,3])
 
 def bubblesort(A):
+    n_assign = 0 #number of assignments
+    n_cond = 0 #number of conditions
     n = len(A)
     for i in range(n):
+        n_assign += 1
         for j in range(0, n-i-1):
             if A[j] > A[j+1] :
+                n_cond += 1
                 A[j], A[j+1] = A[j+1], A[j]
-    return A
+                n_assign +=1
+    return A, n_assign, n_cond
 
-def Partition (A,p,r):
+def Partition (A,p,r,n_assign,n_cond):
+    n_assign = 0 #number of assignments
+    n_cond = 0 #number of conditions
     x = A[r] # choosing the pivot as the last element in the array
     i = p - 1
     for j in range(p,r):
         if A[j] <= x:
+            n_cond += 1
             i = i+1
+            n_assign += 1
             A[i],A[j] = A[j],A[i]
+            n_assign += 1
     A[i+1],A[r]=A[r],A[i+1]
+    n_assign += 1
     return i+1
 
-def quicksort(A,p,r):
+def quicksort(A,p,r,n_assign,n_cond):
+    n_assign = 0 #number of assignments
+    n_cond = 0 #number of conditions
+
     if len(A)==0:
+        n_cond += 1
         return []
     if len(A)==1:
+        n_cond += 1
         return A
     if p < r:
-        q = Partition(A,p,r)
-        quicksort(A,p,q-1)
-        quicksort(A,q+1,r)
-        return A
+        n_cond += 1
+        q = Partition(A,p,r,n_assign,n_cond)
+        quicksort(A,p,q-1, n_assign,n_cond)
+        n_assign += 1
+        quicksort(A,q+1,r,n_assign,n_cond)
+        n_assign += 1
+        return A, n_assign, n_cond

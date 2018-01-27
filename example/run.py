@@ -17,7 +17,7 @@ def run_stuff():
     print("Unsorted input: ", A)
 
     print("Bubble sort output: ", bubblesort(A))
-    print("Quick sort output: ", quicksort(A,0,len(A)-1))
+    print("Quick sort output: ", quicksort(A,0,len(A)-1,0,0))
 
     #Checking Time Complexity
     QuicksortTimes = []
@@ -28,7 +28,7 @@ def run_stuff():
         randomList = np.random.random_integers(1,1000000000,size=i)
 
         startTime = time.time()
-        quickList = quicksort(randomList,0,len(randomList)-1)
+        quickList = quicksort(randomList,0,len(randomList)-1,0,0)
         runTime = time.time()-startTime
         QuicksortTimes.append(runTime)
 

@@ -47,13 +47,13 @@ def test_quicksort():
     C = [2] #single element vector
     D = [23, 23, 42, 1, 32, 2] # Duplicated elements
     E = [1,2,4,0] #even length
-    
+
     # for now, just attempt to call the quicksort function, should
     # actually check output
-    assert algs.quicksort(A,0,len(A)-1) == sorted(A)
-    assert algs.quicksort(B,0,len(B)-1) == sorted(B)
-    assert algs.quicksort(C,0,len(C)-1) == sorted(C)
-    assert algs.quicksort(D,0,len(D)-1) == sorted(D)
-    assert algs.quicksort(E,0,len(E)-1) == sorted(E)
+    assert algs.quicksort(A,0,len(A)-1,0,0) == sorted(A)
+    assert algs.quicksort(B,0,len(B)-1,0,0) == sorted(B)
+    assert algs.quicksort(C,0,len(C)-1,0,0) == sorted(C)
+    assert algs.quicksort(D,0,len(D)-1,0,0) == sorted(D)
+    assert algs.quicksort(E,0,len(E)-1,0,0) == sorted(E)
 
     # algs.quicksort(x,0,len(x)-1)
