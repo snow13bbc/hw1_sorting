@@ -44,10 +44,10 @@ def quicksort(A,p,r,n_assign,n_cond):
 
     if len(A)==0:
         n_cond += 1
-        return []
+        return [],n_assign,n_cond
     if len(A)==1:
         n_cond += 1
-        return A
+        return A,n_assign,n_cond
     if p < r:
         n_cond += 1
         q = Partition(A,p,r,n_assign,n_cond)

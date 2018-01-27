@@ -32,11 +32,11 @@ def test_bubblesort():
 
     # for now, just attempt to call the bubblesort function, should
     # actually check output
-    assert algs.bubblesort(A) == sorted(A)
-    assert algs.bubblesort(B) == sorted(B)
-    assert algs.bubblesort(C) == sorted(C)
-    assert algs.bubblesort(D) == sorted(D)
-    assert algs.bubblesort(E) == sorted(E)
+    assert algs.bubblesort(A)[0] == sorted(A)
+    assert algs.bubblesort(B)[0] == sorted(B)
+    assert algs.bubblesort(C)[0] == sorted(C)
+    assert algs.bubblesort(D)[0] == sorted(D)
+    assert algs.bubblesort(E)[0] == sorted(E)
 
     # algs.bubblesort(x)
 
@@ -50,10 +50,10 @@ def test_quicksort():
 
     # for now, just attempt to call the quicksort function, should
     # actually check output
-    assert algs.quicksort(A,0,len(A)-1,0,0) == sorted(A)
-    assert algs.quicksort(B,0,len(B)-1,0,0) == sorted(B)
-    assert algs.quicksort(C,0,len(C)-1,0,0) == sorted(C)
-    assert algs.quicksort(D,0,len(D)-1,0,0) == sorted(D)
-    assert algs.quicksort(E,0,len(E)-1,0,0) == sorted(E)
+    assert algs.quicksort(A,0,len(A)-1,0,0)[0] == sorted(A)
+    assert algs.quicksort(B,0,len(B)-1,0,0)[0] == sorted(B)
+    assert algs.quicksort(C,0,len(C)-1,0,0)[0] == sorted(C)
+    assert algs.quicksort(D,0,len(D)-1,0,0)[0] == sorted(D)
+    assert algs.quicksort(E,0,len(E)-1,0,0)[0] == sorted(E)
 
     # algs.quicksort(x,0,len(x)-1)
