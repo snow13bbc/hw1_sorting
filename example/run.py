@@ -16,8 +16,8 @@ def run_stuff():
     A = np.random.rand(10)
     print("Unsorted input: ", A)
 
-    print("Bubble sort output: ", bubblesort(A))
-    print("Quick sort output: ", quicksort(A,0,len(A)-1,0,0))
+    print("Bubble sort output, number of assignments, number of conditionals: ", bubblesort(A))
+    print("Quick sort output, number of assignments, number of conditionals: ", quicksort(A,0,len(A)-1,0,0))
 
     #Checking Time Complexity
     QuicksortTimes = []
