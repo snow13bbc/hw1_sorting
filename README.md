@@ -3,6 +3,8 @@
 [![Build
 Status](https://travis-ci.org/snow13bbc/example.svg?branch=master)](https://travis-ci.org/snow13bbc/example)
 
+Travis - https://travis-ci.org/snow13bbc/example
+
 Example python project with testing.
 
 ## usage
