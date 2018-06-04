@@ -17,33 +17,55 @@ def run_stuff():
     print("Unsorted input: ", A)
 
     print("Bubble sort output, number of assignments, number of conditionals: ", bubblesort(A))
-    print("Quick sort output, number of assignments, number of conditionals: ", quicksort(A,0,len(A)-1,0,0))
+    print("Quick sort output, number of assignments, number of conditionals: ", quicksort(A,0,len(A)-1))
 
     #Checking Time Complexity
-    QuicksortTimes = []
-    bubbleSortTimes = []
+    arr_val = []
+    bs_assigns, bs_conds = [], []
+    qs_assigns, qs_conds = [], []
 
-    sizes = [100*x for x in range (0,11)]
-    for i in sizes:
-        randomList = np.random.random_integers(1,1000000000,size=i)
+    for i in range(0, 1000, 100):
+        arr_val.append(i)
+        iter_bs_assigns, iter_bs_conds = [], []
+        iter_qs_assigns, iter_qs_conds = [], []
 
-        startTime = time.time()
-        quickList = quicksort(randomList,0,len(randomList)-1,0,0)
-        runTime = time.time()-startTime
-        QuicksortTimes.append(runTime)
+        for j in range(0, 10):
+            x = np.random.rand(i)
 
-        startTime = time.time()
-        quickList = bubblesort(randomList)
-        runTime = time.time()-startTime
-        bubbleSortTimes.append(runTime)
+            bubblesort = bubblesort(x)
+            iter_bs_assigns.append(bubblesort[1])
+            iter_bs_conds.append(bubblesort[2])
 
-    plt.figure(figsize=(12,5))
-    plt.plot(sizes,QuicksortTimes,marker='x',c='b',label='Quicksort')
-    plt.plot(sizes,bubbleSortTimes,marker='x',c='r',label='Bubblesort')
-    plt.xlabel("size of unsorted list")
-    plt.ylabel("seconds of computation")
-    plt.legend(loc=2)
-    plt.grid()
-    plt.title("Quicksort vs Bubblesort")
+            quicksort = quicksort(x, 0, len(x) - 1)
+            iter_qs_assigns.append(quicksort[1])
+            iter_qs_conds.append(quicksort[2])
 
+        bs_assigns.append(np.average(iter_bs_assigns))
+        bs_conds.append(np.average(iter_bs_conds))
+        qs_assigns.append(np.average(iter_qs_assigns))
+        qs_conds.append(np.average(iter_qs_conds))
+
+    print("N^2", [i**2 for i in range(0, 1000, 100)])
+    print("bubble assignments" , bs_assigns)
+    print("NlogN", [i * np.log(i) for i in range(0, 1000, 100)])
+    print("quicksort assignments", qs_assigns)
+    plt.xlabel("list length")
+    plt.ylabel("# of assignments")
+    plt.plot(arr_val, [i**2 for i in range(0, 1000, 100)], label = "N^2")
+    plt.plot(arr_val, bs_assigns, label = "bubblesort")
+    plt.plot(arr_val, [15 *i * np.log(i) for i in range(0, 1000, 100)], label = "Nln(N)")
+    plt.plot(arr_val, qs_assigns, label = "quicksort")
+    plt.legend()
+    plt.show()
+
+
+    print("bubble conditionals", bs_conds)
+    print("quicksort conditionals", qs_conds)
+    plt.xlabel("list length")
+    plt.ylabel("# of conditionals")
+    plt.plot(arr_val, [i**2 for i in range(0, 1000, 100)], label = "N^2")
+    plt.plot(arr_val, bs_conds, label = "bubblesort")
+    plt.plot(arr_val, [15 * i * np.log(i) for i in range(0, 1000, 100)], label = "Nln(N)")
+    plt.plot(arr_val, qs_conds, label = "quicksort")
+    plt.legend()
     plt.show()
