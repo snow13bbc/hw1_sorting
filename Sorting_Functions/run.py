@@ -16,8 +16,8 @@ def run_stuff():
     A = np.random.rand(10)
     print("Unsorted input: ", A)
 
-    print("Bubble sort output, number of assignments, number of conditionals: ", bubblesort(A))
-    print("Quick sort output, number of assignments, number of conditionals: ", quicksort(A,0,len(A)-1))
+    print("Bubblesort output, number of assignments, number of conditionals: ", bubblesort(A))
+    print("Quicksort output, number of assignments, number of conditionals: ", quicksort(A,0,len(A)-1))
 
     #Checking Time Complexity
     arr_val = []
@@ -32,13 +32,13 @@ def run_stuff():
         for j in range(0, 10):
             x = np.random.rand(i)
 
-            bubblesort = bubblesort(x)
-            iter_bs_assigns.append(bubblesort[1])
-            iter_bs_conds.append(bubblesort[2])
+            b_sort = bubblesort(x)
+            iter_bs_assigns.append(b_sort[1])
+            iter_bs_conds.append(b_sort[2])
 
-            quicksort = quicksort(x, 0, len(x) - 1)
-            iter_qs_assigns.append(quicksort[1])
-            iter_qs_conds.append(quicksort[2])
+            q_sort = quicksort(x, 0, len(x) - 1)
+            iter_qs_assigns.append(q_sort[1])
+            iter_qs_conds.append(q_sort[2])
 
         bs_assigns.append(np.average(iter_bs_assigns))
         bs_conds.append(np.average(iter_bs_conds))
@@ -56,6 +56,7 @@ def run_stuff():
     plt.plot(arr_val, [15 *i * np.log(i) for i in range(0, 1000, 100)], label = "Nln(N)")
     plt.plot(arr_val, qs_assigns, label = "quicksort")
     plt.legend()
+    plt.savefig("assignments.png")
     plt.show()
 
 
@@ -68,4 +69,5 @@ def run_stuff():
     plt.plot(arr_val, [15 * i * np.log(i) for i in range(0, 1000, 100)], label = "Nln(N)")
     plt.plot(arr_val, qs_conds, label = "quicksort")
     plt.legend()
+    plt.savefig("conditionals.png")
     plt.show()

@@ -27,8 +27,8 @@ def quicksort(A,p,r):
     global qs_assign, qs_cond
 
     if len(A) in (0,1):
-        n_cond += 1
-        return A,n_assign,n_cond
+        qs_cond += 1
+        return A,qs_assign, qs_cond
 
     def partition(arr,first,last):
         global qs_assign, qs_cond
@@ -48,7 +48,7 @@ def quicksort(A,p,r):
 
     if p < r:
         qs_cond += 1
-        q = partition(arr,first,last)
+        q = partition(A,p,r)
         quicksort(A,p,q-1)
         qs_assign += 1
         quicksort(A,q+1,r)

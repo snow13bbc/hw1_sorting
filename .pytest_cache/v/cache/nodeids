@@ -1,0 +1,4 @@
+[
+  "test/test_algs.py::test_bubblesort",
+  "test/test_algs.py::test_quicksort"
+]

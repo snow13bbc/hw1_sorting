@@ -1,5 +1,5 @@
 import numpy as np
-from example import algs
+from Sorting_Functions import algs
 import random
 import time
 import matplotlib.pyplot as plt
@@ -42,6 +42,6 @@ def test_quicksort():
     assert algs.quicksort(B,0,len(B)-1)[0] == sorted(B)
     assert algs.quicksort(C,0,len(C)-1)[0] == sorted(C)
     assert algs.quicksort(D,0,len(D)-1)[0] == sorted(D)
-    assert algs.quicksort(E,0,len(E)-1)[0] == [0,1,2,4] 
+    assert algs.quicksort(E,0,len(E)-1)[0] == [0,1,2,4]
 
     # algs.quicksort(x,0,len(x)-1)

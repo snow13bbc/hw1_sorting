@@ -1,9 +1,9 @@
 # example
 
 [![Build
-Status](https://travis-ci.org/snow13bbc/example.svg?branch=master)](https://travis-ci.org/snow13bbc/example)
+Status](https://travis-ci.org/snow13bbc/hw1_sorting.svg?branch=master)](https://travis-ci.org/snow13bbc/hw1_sorting)
 
-Travis - https://travis-ci.org/snow13bbc/example
+Travis - https://travis-ci.org/snow13bbc/hw1_sorting
 
 Example python project with testing.
 
@@ -23,10 +23,10 @@ conda install --yes --file requirements.txt
 ```
 
 to install all the dependencies in `requirements.txt`. Then the package's
-main function (located in `example/__main__.py`) can be run as follows
+main function (located in `Sorting_Functions/__main__.py`) can be run as follows
 
 ```
-python -m example
+python -m Sorting_Functions
 ```
 
 ## testing
