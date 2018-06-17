@@ -2,7 +2,7 @@
 # to shows how to do relative import functions from another python file in
 # the same directory as this one.
 import numpy as np
-from .algs import quicksort, bubblesort
+from .algs import quicksort, bubblesort, quicksort_count
 import random
 import time
 import matplotlib.pyplot as plt
@@ -36,9 +36,11 @@ def run_stuff():
             iter_bs_assigns.append(b_sort[1])
             iter_bs_conds.append(b_sort[2])
 
-            q_sort = quicksort(x, 0, len(x) - 1)
-            iter_qs_assigns.append(q_sort[1])
-            iter_qs_conds.append(q_sort[2])
+            y = np.random.rand(i)
+
+            q_sort = quicksort_count(y, 0, len(y) - 1)
+            iter_qs_assigns.append(q_sort[0])
+            iter_qs_conds.append(q_sort[1])
 
         bs_assigns.append(np.average(iter_bs_assigns))
         bs_conds.append(np.average(iter_bs_conds))
@@ -53,7 +55,7 @@ def run_stuff():
     plt.ylabel("# of assignments")
     plt.plot(arr_val, [i**2 for i in range(0, 1000, 100)], label = "N^2")
     plt.plot(arr_val, bs_assigns, label = "bubblesort")
-    plt.plot(arr_val, [15 *i * np.log(i) for i in range(0, 1000, 100)], label = "Nln(N)")
+    plt.plot(arr_val, [i * np.log(i) for i in range(0, 1000, 100)], label = "Nln(N)")
     plt.plot(arr_val, qs_assigns, label = "quicksort")
     plt.legend()
     plt.savefig("assignments.png")
@@ -66,7 +68,7 @@ def run_stuff():
     plt.ylabel("# of conditionals")
     plt.plot(arr_val, [i**2 for i in range(0, 1000, 100)], label = "N^2")
     plt.plot(arr_val, bs_conds, label = "bubblesort")
-    plt.plot(arr_val, [15 * i * np.log(i) for i in range(0, 1000, 100)], label = "Nln(N)")
+    plt.plot(arr_val, [i * np.log(i) for i in range(0, 1000, 100)], label = "Nln(N)")
     plt.plot(arr_val, qs_conds, label = "quicksort")
     plt.legend()
     plt.savefig("conditionals.png")
